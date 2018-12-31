@@ -18,14 +18,22 @@
         </v-layout> -->
 
         <v-layout class="mb-3">
-          <v-btn flat small left @click="sortBy('title')">
-            <v-icon>folder</v-icon>
+          <v-tooltip top>
+          <v-btn flat small left @click="sortBy('title')" slot="activator">
+            <v-icon left>folder</v-icon>
             <span class="caption text-lowercase">By projects</span>
           </v-btn>
-          <v-btn flat small letf @click="sortBy('person')">
-            <v-icon>person</v-icon>
+          <span>Order by projects</span>
+          </v-tooltip>
+
+          <v-tooltip top>
+          <v-btn flat small letf @click="sortBy('person')" slot="activator">
+            <v-icon left>person</v-icon>
             <span class="caption text-lowercase">By person</span>
           </v-btn>
+          <span>Order by person</span>
+          </v-tooltip>
+
         </v-layout>
 
         <v-card flat v-for="project in projects" :key="project.title">
