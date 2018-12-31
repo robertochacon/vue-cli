@@ -7,7 +7,7 @@
             <v-card class="text-xs-center ma-3">
               <v-responsive class="pt-4">
                 <v-avatar size="100">
-                    <img :src="team.avatar" :alt="team.name" dark>
+                    <img :src="team.avatar" :alt="team.name">
                 </v-avatar>
               </v-responsive>
               <v-card-text>
@@ -33,11 +33,11 @@ export default {
     return {
       teams:[
         {name:'Roberto',role:'Disenador web',avatar:'/img/avatar-1.jpg'},
-        {name:'Roberto',role:'Disenador web',avatar:'/img/avatar-2.png'},
-        {name:'Roberto',role:'Disenador web',avatar:'/img/avatar-3.jpg'},
-        {name:'Roberto',role:'Disenador web',avatar:'/img/avatar-4.jpg'},
-        {name:'Roberto',role:'Disenador web',avatar:'/img/avatar-5.jpg'},
-        {name:'Roberto',role:'Disenador web',avatar:'/img/avatar-6.jpg'}
+        {name:'Daniel',role:'Disenador web',avatar:'/img/avatar-2.png'},
+        {name:'Jose',role:'Disenador web',avatar:'/img/avatar-3.jpg'},
+        {name:'Kevin',role:'Disenador web',avatar:'/img/avatar-4.jpg'},
+        {name:'Marcos',role:'Disenador web',avatar:'/img/avatar-5.jpg'},
+        {name:'Ricardo',role:'Disenador web',avatar:'/img/avatar-6.jpg'}
       ]
     }
   }

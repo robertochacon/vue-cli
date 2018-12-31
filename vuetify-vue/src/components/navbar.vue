@@ -7,6 +7,19 @@
                 <span class="font-weight-light">studios</span>
             </v-toolbar-title>
             <v-spacer></v-spacer>
+
+            <v-menu offset-y>
+                <v-btn flat color="grey" slot="activator">
+                    <span>Menu</span>
+                    <v-icon right>expand_more</v-icon>
+                </v-btn>
+                <v-list>
+                    <v-list-tile v-for="link in links" :key="link.text" router :to="link.route">
+                        <v-list-tile-title>{{ link.text }}</v-list-tile-title>
+                    </v-list-tile>
+                </v-list>
+            </v-menu>
+
             <v-btn flat color="grey">
                 <span>Salir</span>
                 <v-icon right class="red--text">exit_to_app</v-icon>
@@ -14,7 +27,7 @@
         </v-toolbar>
 
         <v-navigation-drawer flat app v-model="drawer" class="black">
-
+            <div>
             <v-layout column align-center>
                 <v-flex class="mt-5">
                     <v-avatar size="100">
@@ -33,6 +46,7 @@
                     </v-list-tile-content>
                 </v-list-tile>
             </v-list>
+            </div>
         </v-navigation-drawer>
 
     </nav>
