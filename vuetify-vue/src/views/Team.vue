@@ -6,7 +6,9 @@
           <v-flex xs12 sm6 md4 lg3 v-for="team in teams" :key="team.name">
             <v-card class="text-xs-center ma-3">
               <v-responsive class="pt-4">
-                Imagen
+                <v-avatar size="100">
+                    <img :src="team.avatar" :alt="team.name" dark>
+                </v-avatar>
               </v-responsive>
               <v-card-text>
                 <div class="subhiding">{{ team.name }}</div>
@@ -14,7 +16,7 @@
               </v-card-text>
               <v-card-actions>
                 <v-btn flat color="grey">
-                  <v-icon small left>message</v-icon>
+                  <v-icon small left class="blue--text">message</v-icon>
                   <span>Message</span>
                 </v-btn>
               </v-card-actions>
@@ -30,11 +32,12 @@ export default {
   data(){
     return {
       teams:[
-        {name:'Daniel',role:'Disenador web'},
-        {name:'Daniel',role:'Disenador web'},
-        {name:'Daniel',role:'Disenador web'},
-        {name:'Daniel',role:'Disenador web'},
-        {name:'Daniel',role:'Disenador web'}
+        {name:'Roberto',role:'Disenador web',avatar:'/img/avatar-1.jpg'},
+        {name:'Roberto',role:'Disenador web',avatar:'/img/avatar-2.png'},
+        {name:'Roberto',role:'Disenador web',avatar:'/img/avatar-3.jpg'},
+        {name:'Roberto',role:'Disenador web',avatar:'/img/avatar-4.jpg'},
+        {name:'Roberto',role:'Disenador web',avatar:'/img/avatar-5.jpg'},
+        {name:'Roberto',role:'Disenador web',avatar:'/img/avatar-6.jpg'}
       ]
     }
   }

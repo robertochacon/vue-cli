@@ -14,6 +14,15 @@
         </v-toolbar>
 
         <v-navigation-drawer flat app v-model="drawer" class="black">
+
+            <v-layout column align-center>
+                <v-flex class="mt-5">
+                    <v-avatar size="100">
+                        <img src="/img/yo.jpg" alt="Roberto Chacon A.">
+                    </v-avatar>
+                    <p class="subheading white--text mt-1">Roberto Chacon A.</p>
+                </v-flex>
+            </v-layout>
             <v-list>
                 <v-list-tile v-for="link in links" :key="link.text" router :to="link.route">
                     <v-list-tile-action>
