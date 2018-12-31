@@ -17,6 +17,17 @@
             </v-flex>
         </v-layout> -->
 
+        <v-layout class="mb-3">
+          <v-btn flat small left @click="sortBy('title')">
+            <v-icon>folder</v-icon>
+            <span class="caption text-lowercase">By projects</span>
+          </v-btn>
+          <v-btn flat small letf @click="sortBy('person')">
+            <v-icon>person</v-icon>
+            <span class="caption text-lowercase">By person</span>
+          </v-btn>
+        </v-layout>
+
         <v-card flat v-for="project in projects" :key="project.title">
           <v-layout row wrap :class="'pa-3 '+project.status">
             <v-flex xs12 md6>
@@ -51,11 +62,16 @@
       return{
         projects:[
           {title:'Sistema escolar',person:'Roberto',day:'1st jan 2019',status:'complete'},
-          {title:'Pagina estudiantil',person:'Roberto',day:'1st jan 2019',status:'ongoing'},
+          {title:'Pagina estudiantil',person:'Angel',day:'1st jan 2019',status:'ongoing'},
           {title:'Comer cena navidena',person:'Roberto',day:'1st jan 2019',status:'overdue'},
-          {title:'Aprender vue',person:'Roberto',day:'1st jan 2019',status:'ongoing'},
+          {title:'Aprender vue',person:'manuel',day:'1st jan 2019',status:'ongoing'},
           {title:'Esperar ano nuevo',person:'Roberto',day:'1st jan 2019',status:'complete'},
         ]
+      }
+    },
+    methods:{
+      sortBy(order){
+        this.projects.sort((a,b) => a[order] < b[order]? -1 : 1)
       }
     }
   }
