@@ -1,5 +1,11 @@
 <template>
     <nav>
+
+        <v-snackbar v-model="snackbar" :timeout="4000" top color="green">
+            <span class="text--upercase">added correctly</span>
+            <v-btn flat @click="snackbar = false">Close</v-btn>
+        </v-snackbar>
+
         <v-toolbar flat app>
             <v-toolbar-side-icon @click="drawer = !drawer"></v-toolbar-side-icon>
             <v-toolbar-title class="text-uppercase grey--text">
@@ -38,7 +44,7 @@
             </v-layout>
             <v-layout column align-center>
                 <v-flex class="mt-4 mb-3">
-                    <Popup/>
+                    <Popup @addProject="snackbar = true"/>
                 </v-flex>
             </v-layout>
             <v-list>
@@ -72,7 +78,8 @@ export default {
                 {icon:'folder',color:'yellow',text:'My projects',route:'/projects'},
                 {icon:'person',color:'purple',text:'Team',route:'/team'},
                 {icon:'face',color:'green',text:'Perfil',route:'/perfil'}
-            ]
+            ],
+            snackbar:false
         }
     }
 }

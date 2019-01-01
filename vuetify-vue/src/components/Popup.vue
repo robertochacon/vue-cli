@@ -63,7 +63,7 @@ export default {
                     console.log('Agregado correctamente')
                     this.loading = false;
                     setTimeout(() => {this.dialog = false;},1000);
-                    
+                    this.$emit('addProject');
                 })
             }
         }

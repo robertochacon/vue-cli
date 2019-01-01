@@ -36,7 +36,7 @@
 
         </v-layout>
 
-        <v-card flat v-for="project in projects" :key="project.title">
+        <v-card flat v-for="project in projects" :key="project.id">
           <v-layout row wrap :class="'pa-3 '+project.status">
             <v-flex xs12 md6>
               <div class="caption grey--text">Title</div>
@@ -65,22 +65,33 @@
 </template>
 
 <script>
+import db from '@/fb'
+
   export default {
     data(){
       return{
-        projects:[
-          {title:'Sistema escolar',person:'Roberto',day:'1st jan 2019',status:'complete'},
-          {title:'Pagina estudiantil',person:'Angel',day:'1st jan 2019',status:'ongoing'},
-          {title:'Comer cena navidena',person:'Roberto',day:'1st jan 2019',status:'overdue'},
-          {title:'Aprender vue',person:'manuel',day:'1st jan 2019',status:'ongoing'},
-          {title:'Esperar ano nuevo',person:'Roberto',day:'1st jan 2019',status:'complete'},
-        ]
+        projects:[]
       }
     },
     methods:{
       sortBy(order){
         this.projects.sort((a,b) => a[order] < b[order]? -1 : 1)
       }
+    },
+    created(){
+      db.collection('projects').onSnapshot(res => {
+        const changes = res.docChanges();
+
+        changes.forEach(change => {
+          if(change.type === 'added'){
+            this.projects.push({
+              ...change.doc.data(),
+              id: change.doc.id
+            })
+          }
+        })
+
+      })
     }
   }
 </script>
