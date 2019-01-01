@@ -13,7 +13,7 @@
                     <v-text-field label="Titulo" v-model="title" prepend-icon="folder"></v-text-field>
                     <v-textarea label="Content" v-model="content" prepend-icon="edit"></v-textarea>
                     <v-menu>
-                        <v-text-field :value="due" slot="activator" label="Date" prepend-icon="date_range"></v-text-field>
+                        <v-text-field :value="formatedDate" slot="activator" label="Date" prepend-icon="date_range"></v-text-field>
                         <v-date-picker v-model="due"></v-date-picker>
                     </v-menu>
                     <v-spacer></v-spacer>
@@ -25,6 +25,9 @@
 </template>
 
 <script>
+
+import format from 'date-fns/format'
+
 export default {
     data(){
         return {
@@ -36,6 +39,11 @@ export default {
     methods:{
         submit(){
             console.log('Title:'+this.title+' Content:'+this.content+' Date:'+this.due)
+        }
+    },
+    computed:{
+        formatedDate(){
+            return this.due ? format(this.due, 'Do MMM YYY') : ''
         }
     }
 }
