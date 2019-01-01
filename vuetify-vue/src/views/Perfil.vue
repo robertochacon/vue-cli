@@ -2,7 +2,9 @@
     <div class="perfil">
         <h1 class="subhiding grey--text">Perfil</h1>
       <v-container class="my-2">
-        content
+        
+        
+
       </v-container>
     </div>
 </template>

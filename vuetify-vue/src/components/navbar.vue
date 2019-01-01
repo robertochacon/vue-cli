@@ -33,7 +33,12 @@
                     <v-avatar size="100">
                         <img src="/img/yo.jpg" alt="Roberto Chacon A.">
                     </v-avatar>
-                    <p class="subheading white--text mt-1">Roberto Chacon A.</p>
+                    <p class="white--text subheading mt-1">Roberto Chacon A.</p>
+                </v-flex>
+            </v-layout>
+            <v-layout column align-center>
+                <v-flex class="mt-4 mb-3">
+                    <Popup/>
                 </v-flex>
             </v-layout>
             <v-list>
@@ -53,7 +58,12 @@
 </template>
 
 <script>
+import Popup from './Popup'
+
 export default {
+    components:{
+        Popup
+    },
     data(){
         return{
             drawer:false,
