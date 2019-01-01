@@ -12,6 +12,11 @@
                 <v-form class="px-3">
                     <v-text-field label="Titulo" v-model="title" prepend-icon="folder"></v-text-field>
                     <v-textarea label="Content" v-model="content" prepend-icon="edit"></v-textarea>
+                    <v-menu>
+                        <v-text-field :value="due" slot="activator" label="Date" prepend-icon="date_range"></v-text-field>
+                        <v-date-picker v-model="due"></v-date-picker>
+                    </v-menu>
+                    <v-spacer></v-spacer>
                     <v-btn class="mx-0 mt-3 green white--text" @click="submit()">Save project</v-btn>
                 </v-form>
             </v-card-text>
@@ -25,11 +30,12 @@ export default {
         return {
             title:'',
             content:'',
+            due:null
         }
     },
     methods:{
         submit(){
-            console.log('Title:'+this.title+' content:'+this.content)
+            console.log('Title:'+this.title+' Content:'+this.content+' Date:'+this.due)
         }
     }
 }
